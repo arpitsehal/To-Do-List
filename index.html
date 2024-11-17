@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"> <!-- FontAwesome -->
+</head>
+<body>
+    <div class="container">
+        <div class="todo-app">
+            <h2>To-Do List <img src="images/icon.png" alt=""></h2>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Add your text">
+                <button onclick="addTask()">Add</button>
+                
+            </div>
+            <ul id="list-container">
+                <!-- Dynamic tasks will be added here -->
+            </ul>
+            <button id="theme-toggle" onclick="toggleTheme()">🌙</button> <!-- Dark/Light Mode Toggle -->
+        </div>
+        
+    </div>
+    
+    <!-- Footer Section -->
+    <footer>
+        <p>Made with ❤️ by Arpit</p>
+        <p>Version 1.0 | <a href="https://github.com/your-repo" target="_blank">GitHub</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
