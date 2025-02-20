@@ -10,10 +10,11 @@ body, html {
     font-size: 16px;
 }
 
+/* Vibrant Glassmorphic Background */
 .container {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg, #153677, #4e085f);
+    background: linear-gradient(135deg, #2b2d42, #8a2be2, #ff0080);
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -21,22 +22,27 @@ body, html {
     flex-direction: column;
 }
 
+/* Glassmorphic Card */
 .todo-app {
     width: 100%;
     max-width: 540px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
     padding: 40px 20px;
-    border-radius: 10px;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     transition: background 0.3s ease, color 0.3s ease;
-    margin-bottom: 20px; /* Space for footer */
+    margin-bottom: 20px;
 }
 
+/* Title */
 .todo-app h2 {
-    color: #002765;
+    color: #ffffff;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 0px 2px 10px rgba(255, 255, 255, 0.5);
 }
 
 .todo-app h2 img {
@@ -44,11 +50,12 @@ body, html {
     margin-left: 10px;
 }
 
+/* Input & Row Design */
 .row {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #edeef0;
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
@@ -60,27 +67,32 @@ input {
     border: none;
     outline: none;
     background: transparent;
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
+    color: #fff;
 }
 
+/* Button Styles */
 button {
     border: none;
     outline: none;
     padding: 16px 50px;
-    background: #ff5945;
+    background: linear-gradient(135deg, #ff007f, #ff3d00);
     border-radius: 30px;
     color: #fff;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
     transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0px 5px 20px rgba(255, 0, 128, 0.5);
 }
 
 button:hover {
-    background: #ff3c2a;
+    background: linear-gradient(135deg, #ff3d00, #ff007f);
     transform: scale(1.1);
 }
 
+/* Task List */
 ul li {
     list-style: none;
     font-size: 17px;
@@ -90,12 +102,16 @@ ul li {
     position: relative;
     opacity: 0;
     animation: fadeIn 0.3s forwards;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+    color: white;
 }
 
 ul li:hover {
-    background: #f4f4f4;
+    background: rgba(255, 255, 255, 0.2);
 }
 
+/* Checkbox Icons */
 ul li::before {
     content: '';
     position: absolute;
@@ -109,8 +125,9 @@ ul li::before {
     left: 8px;
 }
 
+/* Checked Items */
 ul li.checked {
-    color: #555;
+    color: #ddd;
     text-decoration: line-through;
 }
 
@@ -118,6 +135,7 @@ ul li.checked::before {
     background-image: url(images/checked.png);
 }
 
+/* Delete Button */
 ul li span {
     position: absolute;
     right: 10px;
@@ -125,7 +143,7 @@ ul li span {
     width: 35px;
     height: 35px;
     font-size: 20px;
-    color: #555;
+    color: white;
     line-height: 35px;
     text-align: center;
     border-radius: 50%;
@@ -134,27 +152,86 @@ ul li span {
 }
 
 ul li span:hover {
-    background: #edeef0;
-    color: #ff5945;
+    background: rgba(255, 255, 255, 0.3);
+    color: #ff3d00;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: #0a0a0a;
+}
+
+body.dark-mode .todo-app {
+    background: rgba(20, 20, 20, 0.8);
+    color: white;
+}
+
+body.dark-mode .row {
+    background: rgba(50, 50, 50, 0.8);
+}
+
+body.dark-mode ul li {
+    background: rgba(75, 75, 75, 0.6);
+}
+
+body.dark-mode button {
+    background: linear-gradient(135deg, #ff0080, #ff4500);
+}
+
+body.dark-mode ul li span {
+    color: white;
 }
 
 #theme-toggle {
     background: transparent;
     border: none;
     padding: 10px;
-    font-size: 20px;
+    font-size: 24px;
     cursor: pointer;
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    top: 20px;  /* Moved to the top */
+    right: 20px;  /* Adjusted to the right */
     border-radius: 50%;
-    transition: transform 0.3s ease;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
+body:not(.dark-mode) footer {
+    color: #333; /* Darker color for visibility in light mode */
+}
+
 
 #theme-toggle:hover {
     transform: scale(1.2);
+    color: #ff4500;
 }
 
+/* Footer */
+footer {
+    background: transparent;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    font-size: 14px;
+}
+
+footer a {
+    color: #ff007f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    margin: 5px;
+}
+
+/* Fade-In Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -164,52 +241,9 @@ ul li span:hover {
     }
 }
 
-/* Dark Mode */
-body.dark-mode {
-    background: #2c2c2c;
-}
-
-body.dark-mode .todo-app {
-    background: #333;
+/* Icon Adjustments */
+ul li span i {
+    font-size: 18px;
     color: white;
-}
-
-body.dark-mode .row {
-    background: #444;
-}
-
-body.dark-mode ul li {
-    background: #555;
-}
-
-body.dark-mode button {
-    background: #ff6b6b;
-}
-
-body.dark-mode ul li span {
-    color: white;
-}
-
-/* Footer Styles */
-footer {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-    width: 100%;
-    position: relative;
-    bottom: 0;
-}
-
-footer a {
-    color: #ff5945;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-footer p {
-    margin: 5px;
+    cursor: pointer;
 }
